@@ -1,10 +1,8 @@
-package com.example.snack
+package com.example.snack.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.snack.databinding.ActivityMainBinding
-import com.example.snack.databinding.ActivitySignUpBinding
 import com.example.snack.databinding.ActivityWorkSpaceListBinding
 
 class WorkSpaceListActivity : AppCompatActivity() {
@@ -19,8 +17,12 @@ class WorkSpaceListActivity : AppCompatActivity() {
 
     fun init(){
         binding.apply {
-            addWorkSpace.setOnClickListener {
+            addWorkspace.setOnClickListener {
                 val intent = Intent(this@WorkSpaceListActivity, WorkSpaceAddActivity::class.java)
+                startActivity(intent)
+            }
+            logout.setOnClickListener {
+                val intent = Intent(this@WorkSpaceListActivity, MainActivity::class.java)
                 startActivity(intent)
             }
         }

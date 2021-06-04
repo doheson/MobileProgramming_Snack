@@ -9,10 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/NoActionBar">
-        <activity android:name=".WorkSpaceAddActivity"></activity>
-        <activity android:name=".WorkSpaceListActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.ChannelActivity"></activity>
+        <activity android:name=".view.DetailWorkspaceActivity" />
+        <activity android:name=".view.AddMemberActivity" />
+        <activity android:name=".view.WorkSpaceAddActivity" />
+        <activity android:name=".view.WorkSpaceListActivity" />
+        <activity android:name=".view.SignUpActivity" />
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

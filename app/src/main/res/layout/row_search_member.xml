@@ -12,15 +12,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|left"
         android:layout_weight="1"
-        android:text="# 채널 이름"
+        android:text="greenjoa123"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold" />
 
 
     <ImageView
-        android:id="@+id/delete"
+        android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_baseline_close_24" />
+        app:srcCompat="@drawable/ic_baseline_add_24" />
 </LinearLayout>

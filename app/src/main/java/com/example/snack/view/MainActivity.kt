@@ -1,4 +1,4 @@
-package com.example.snack
+package com.example.snack.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

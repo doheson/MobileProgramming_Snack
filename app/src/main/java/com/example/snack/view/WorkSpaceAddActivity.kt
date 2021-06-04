@@ -1,10 +1,9 @@
-package com.example.snack
+package com.example.snack.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.snack.databinding.ActivityWorkSpaceAddBinding
-import com.example.snack.databinding.ActivityWorkSpaceListBinding
 
 class WorkSpaceAddActivity : AppCompatActivity() {
     lateinit var binding: ActivityWorkSpaceAddBinding
@@ -17,6 +16,10 @@ class WorkSpaceAddActivity : AppCompatActivity() {
     }
     fun init(){
         binding.apply {
+            addMember.setOnClickListener {
+                val intent = Intent(this@WorkSpaceAddActivity, AddMemberActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 }

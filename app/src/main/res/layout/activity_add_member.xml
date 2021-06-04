@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:outlineAmbientShadowColor="#000000"
     android:paddingHorizontal="30dp"
-    tools:context=".view.WorkSpaceAddActivity">
+    tools:context=".view.MainActivity">
 
 
     <LinearLayout
@@ -28,57 +28,48 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="60dp"
-            android:text="워크스페이스 추가"
+            android:text="팀원 추가"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/name"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/yellow_border_box"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:background="@null"
+            android:ems="15"
+            android:hint="추가할 팀원을 검색해주세요"
+            android:inputType="textPersonName"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_baseline_search_24" />
+
+    </LinearLayout>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/yellow_border_box"
-        android:ems="20"
-        android:hint="워크스페이스 제목"
-        android:inputType="textPersonName"
-        android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
+        android:text="검색 결과"
+        android:textColor="@color/black"
         android:textSize="16sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/yellow_border_box"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/channel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:layout_weight="1"
-            android:background="#00FFFFFF"
-            android:ems="20"
-            android:hint="추가할 채널을 입력해주세요"
-            android:inputType="textPersonName"
-            android:paddingHorizontal="20dp"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:id="@+id/add"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:layout_weight="4"
-            app:srcCompat="@drawable/ic_baseline_add_24" />
-
-    </LinearLayout>
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -88,13 +79,29 @@
         android:paddingHorizontal="30dp" />
 
     <TextView
-        android:id="@+id/addMember"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="추가할 팀원"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/yellow_border_box"
+        android:paddingHorizontal="30dp" />
+
+    <TextView
+        android:id="@+id/addWorkspace"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
-        android:background="@drawable/yellow_box"
+        android:background="@drawable/red_box"
         android:gravity="center"
-        android:text="팀원 추가하기"
+        android:text="워크스페이스 추가"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold" />

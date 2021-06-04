@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:outlineAmbientShadowColor="#000000"
     android:paddingHorizontal="30dp"
-    tools:context=".MainActivity">
+    tools:context=".view.WorkSpaceListActivity">
 
 
     <LinearLayout
@@ -43,7 +43,7 @@
         android:paddingHorizontal="30dp" />
 
     <TextView
-        android:id="@+id/addWorkSpace"
+        android:id="@+id/addWorkspace"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
@@ -58,6 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:id="@+id/logout"
         android:orientation="horizontal">
 
         <ImageView
@@ -67,7 +68,6 @@
             app:srcCompat="@drawable/ic_baseline_exit_to_app_24" />
 
         <TextView
-            android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

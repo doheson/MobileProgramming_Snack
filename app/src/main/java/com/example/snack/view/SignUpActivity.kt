@@ -1,10 +1,9 @@
-package com.example.snack
+package com.example.snack.view
 
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.snack.databinding.ActivityMainBinding
 import com.example.snack.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
