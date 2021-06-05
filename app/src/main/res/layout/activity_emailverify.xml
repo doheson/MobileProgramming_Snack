@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="5"
+    tools:context=".view.emailverify">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/image123"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="3"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="이메일 주소 인증"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/red"/>
+
+        <TextView
+            android:id="@+id/showemail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/red"
+            android:textSize="18sp"
+            />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="상기의 이메일로 인증메일을 전송 하겠습니다."
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/red"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sendemail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginBottom="30dp"
+        android:layout_weight="1"
+
+        android:backgroundTint="@color/yellow"
+        android:text="전송하기"
+        android:textColor="#120F0F" />
+
+    <Button
+        android:id="@+id/checkverify"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginBottom="30dp"
+        android:layout_weight="1"
+
+        android:backgroundTint="@color/yellow"
+        android:text="회원가입"
+        android:textColor="#1B1515" />
+</LinearLayout>

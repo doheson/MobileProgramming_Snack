@@ -41,7 +41,7 @@
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:background="@drawable/yellow_border_box"
         android:ems="10"
@@ -79,8 +79,17 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="24dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="by 모바일 프로그래밍 Team3"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/repwbt"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="비밀번호 재설정 이메일 보내기"
         android:textColor="@color/black" />
 </LinearLayout>
