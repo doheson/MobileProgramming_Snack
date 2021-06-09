@@ -7,7 +7,7 @@
     android:paddingVertical="15dp">
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/editname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|left"

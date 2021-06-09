@@ -35,7 +35,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/editname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -56,7 +56,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/channel"
+            android:id="@+id/editchannel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="10dp"
@@ -88,13 +88,13 @@
         android:paddingHorizontal="30dp" />
 
     <TextView
-        android:id="@+id/addMember"
+        android:id="@+id/addWorkspace2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/yellow_box"
         android:gravity="center"
-        android:text="팀원 추가하기"
+        android:text="워크스페이스 추가하기"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold" />

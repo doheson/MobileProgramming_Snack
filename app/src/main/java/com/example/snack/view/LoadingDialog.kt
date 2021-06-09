@@ -8,7 +8,7 @@ import com.example.snack.R
 
 class LoadingDialog
 constructor(context: Context) : Dialog(context){
-
+    lateinit var binding: NoticeDialog
     init {
         setCanceledOnTouchOutside(false)
 
