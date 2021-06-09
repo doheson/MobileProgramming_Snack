@@ -48,6 +48,10 @@ class MainActivity : AppCompatActivity() {
             repwbt.setOnClickListener {
                 repw()
             }
+            noticeButton.setOnClickListener {
+                val dialog =  NoticeDialog(this@MainActivity)
+                dialog.show()
+            }
         }
     }
     fun signIn(){

@@ -82,7 +82,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@id/channel"
+            android:id="@id/editchannel"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/ic_baseline_add_24" />
