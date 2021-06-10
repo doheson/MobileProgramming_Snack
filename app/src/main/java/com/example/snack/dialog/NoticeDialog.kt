@@ -1,4 +1,4 @@
-package com.example.snack.view
+package com.example.snack.dialog
 
 import android.app.Dialog
 import android.content.Context

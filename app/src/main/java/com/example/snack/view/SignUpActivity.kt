@@ -1,17 +1,14 @@
 package com.example.snack.view
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
-import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.snack.R
-import com.example.snack.databinding.ActivitySignUpBinding
+import com.example.snack.dialog.LoadingDialog
 import com.google.firebase.auth.FirebaseAuth
 import java.util.regex.Pattern
 
@@ -66,7 +63,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
     fun createUser(email: String, password: String){
-        val dialog=LoadingDialog(this)
+        val dialog= LoadingDialog(this)
         dialog.show()
         firebaseAuth!!.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
