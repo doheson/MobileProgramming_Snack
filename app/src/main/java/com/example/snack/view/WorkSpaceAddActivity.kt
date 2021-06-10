@@ -1,9 +1,8 @@
 package com.example.snack.view
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import com.example.snack.data.WorkSpaceList
 import com.example.snack.databinding.ActivityWorkSpaceAddBinding
 import kotlinx.android.synthetic.main.activity_sign_up.*
 

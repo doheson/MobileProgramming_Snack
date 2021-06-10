@@ -9,6 +9,7 @@ import android.graphics.Color
 import android.view.Gravity
 import android.widget.TableRow
 import android.widget.TextView
+import com.example.snack.data.WorkSpaceList
 
 class WorkSpaceDBHelper(val context: Context ) : SQLiteOpenHelper(context, DB_Name, null, DB_VERSION) {
     companion object{
