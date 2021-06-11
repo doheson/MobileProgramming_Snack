@@ -1,4 +1,4 @@
-package com.example.snack.view
+package com.example.snack.dialog
 
 import android.app.Dialog
 import android.content.Context
@@ -10,6 +10,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.snack.adapter.NoticeAdapter
+import com.example.snack.data.NoticeData
 import com.example.snack.databinding.DialogNoticeBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -56,10 +58,10 @@ constructor(context: Context) : Dialog(context) {
         adapter = NoticeAdapter(ArrayList<NoticeData>())
         adapter.itemClickListener = object : NoticeAdapter.OnItemClickListener {
             override fun OnItemClick(
-                holder: NoticeAdapter.MyViewHolder,
-                view: View,
-                data: NoticeData,
-                position: Int
+                    holder: NoticeAdapter.MyViewHolder,
+                    view: View,
+                    data: NoticeData,
+                    position: Int
             ) {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(adapter.items[position].url))
                 context.startActivity(intent)

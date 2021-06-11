@@ -1,10 +1,11 @@
-package com.example.snack.view
+package com.example.snack.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.snack.databinding.RowNoticeBinding
+import com.example.snack.data.NoticeData
 
 class NoticeAdapter(val items: ArrayList<NoticeData>) :
     RecyclerView.Adapter<NoticeAdapter.MyViewHolder>() {

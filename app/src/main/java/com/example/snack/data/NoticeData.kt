@@ -1,3 +1,3 @@
-package com.example.snack.view
+package com.example.snack.data
 
 data class NoticeData(var noticeTitle:String, var url:String)

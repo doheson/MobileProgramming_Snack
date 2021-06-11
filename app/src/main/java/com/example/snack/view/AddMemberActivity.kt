@@ -23,6 +23,5 @@ class AddMemberActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-
     }
 }

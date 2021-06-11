@@ -8,6 +8,8 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.snack.R
 import com.example.snack.databinding.ActivityMainBinding
+import com.example.snack.dialog.LoadingDialog
+import com.example.snack.dialog.NoticeDialog
 import com.google.firebase.auth.FirebaseAuth
 import java.util.regex.Pattern
 
@@ -49,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 repw()
             }
             noticeButton.setOnClickListener {
-                val dialog =  NoticeDialog(this@MainActivity)
+                val dialog = NoticeDialog(this@MainActivity)
                 dialog.show()
             }
         }
@@ -62,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun loginuser(email: String, password: String){
-        val dialog=LoadingDialog(this)
+        val dialog= LoadingDialog(this)
         dialog.show()
         if (firebaseAuth != null) {
             firebaseAuth.signInWithEmailAndPassword(email, password)
