@@ -7,7 +7,9 @@ import android.util.Patterns
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.snack.DBHelper.UserDBHelper
 import com.example.snack.R
+import com.example.snack.data.UserIdData
 import com.example.snack.dialog.LoadingDialog
 import com.google.firebase.auth.FirebaseAuth
 import java.util.regex.Pattern
@@ -24,6 +26,8 @@ class SignUpActivity : AppCompatActivity() {
     var editphone: EditText? = null
     var editname: EditText? = null
     private var firebaseAuth: FirebaseAuth? = null
+    lateinit var userDBHelper: UserDBHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -32,6 +36,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     fun init(){
+        userDBHelper = UserDBHelper(this)
         editTextEmail = findViewById(R.id.et_email)
         editTextPassword = findViewById(R.id.et_password)
         editname=findViewById(R.id.edit_name)
@@ -71,6 +76,7 @@ class SignUpActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Toast.makeText(this, "회원가입성공.", Toast.LENGTH_SHORT).show();
                     dialog.dismiss()
+                    userDBHelper.insertUser(UserIdData(0, email))
                     val intent= Intent(this,emailverify::class.java)
                     startActivity(intent)
                 } else {

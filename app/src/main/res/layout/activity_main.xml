@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="50dp"
+    android:paddingHorizontal="50dp"
+    android:paddingVertical="20dp"
     tools:context=".view.MainActivity">
 
 
     <ImageView
         android:id="@+id/noticeButton"
         android:layout_width="50dp"
-        android:layout_gravity="right"
         android:layout_height="50dp"
+        android:layout_gravity="right"
         android:src="@drawable/ic_baseline_notifications_24" />
 
     <ImageView
@@ -83,6 +84,15 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/repwbt"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="비밀번호 재설정 이메일 보내기"
+        android:textColor="@color/black" />
+
+    <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="24dp"
@@ -91,12 +101,4 @@
         android:text="by 모바일 프로그래밍 Team3"
         android:textColor="@color/black" />
 
-    <TextView
-        android:id="@+id/repwbt"
-        android:layout_width="match_parent"
-        android:layout_height="24dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="비밀번호 재설정 이메일 보내기"
-        android:textColor="@color/black" />
 </LinearLayout>
