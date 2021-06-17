@@ -3,13 +3,16 @@ package com.example.snack.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.snack.DBHelper.User_WorkSpaceDBHelper
 import com.example.snack.DBHelper.WorkSpaceDBHelper
 import com.example.snack.adapter.WorkSpaceAddAdapter
+import com.example.snack.data.User_WorkSpaceData
 import com.example.snack.data.WorkSpaceList
 import com.example.snack.databinding.ActivityWorkSpaceAddBinding
-
+import com.google.firebase.auth.FirebaseAuth
 
 class WorkSpaceAddActivity : AppCompatActivity() {
     lateinit var binding: ActivityWorkSpaceAddBinding
@@ -17,6 +20,10 @@ class WorkSpaceAddActivity : AppCompatActivity() {
     lateinit var wsDBHelper: WorkSpaceDBHelper
     lateinit var adapter: WorkSpaceAddAdapter
     var workTitle = ""
+
+    lateinit var userWorkspacedbhelper: User_WorkSpaceDBHelper
+    private val firebaseAuth: FirebaseAuth? = FirebaseAuth.getInstance()
+    var userEmail = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,10 +33,20 @@ class WorkSpaceAddActivity : AppCompatActivity() {
     }
 
     fun init(){
+        var user = firebaseAuth?.currentUser;
+
+        if (user != null) {
+            userEmail = user.email.toString()
+            Log.e("userName check", userEmail)
+        } else {
+            // No user is signed in.
+        }
+
+        wsDBHelper = WorkSpaceDBHelper(this)
+        userWorkspacedbhelper = User_WorkSpaceDBHelper(this)
+
         binding.apply {
             workTitle = editname.text.toString()
-
-
             recyclerView.layoutManager = LinearLayoutManager(this@WorkSpaceAddActivity,LinearLayoutManager.VERTICAL,false)
 
             adapter = WorkSpaceAddAdapter(ArrayList<String>())
@@ -46,20 +63,14 @@ class WorkSpaceAddActivity : AppCompatActivity() {
                 editchannel.text.clear()
             }
 
-            addWorkspace2.setOnClickListener { //DB 추가하기
-
-            }
-        }
-
-
-        wsDBHelper = WorkSpaceDBHelper(this)
-        binding.apply {
             addWorkspace2.setOnClickListener {
                 for(i in 0 until adapter.getItemCount()){
                     wsDBHelper.insertName(WorkSpaceList(0,workTitle, adapter.items[i]))
                 }
+                userWorkspacedbhelper.insertData(User_WorkSpaceData(userEmail, binding.editname.text.toString()))
 
                 val intent = Intent(this@WorkSpaceAddActivity, AddMemberActivity::class.java)
+                intent.putExtra("workName", binding.editname.text.toString())
                 startActivity(intent)
             }
         }

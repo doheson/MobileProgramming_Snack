@@ -31,6 +31,8 @@
             android:layout_gravity="center"
             android:layout_marginLeft="60dp"
             android:text="# 채널이름1"
+            android:ellipsize="marquee"
+            android:singleLine="true"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -61,7 +63,7 @@
         android:padding="15dp">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/findUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="5"
@@ -72,7 +74,7 @@
             android:textSize="14sp" />
 
         <ImageView
-            android:id="@+id/search"
+            android:id="@+id/searchbtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
