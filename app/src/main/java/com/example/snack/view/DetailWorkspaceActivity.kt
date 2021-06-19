@@ -64,7 +64,7 @@ class DetailWorkspaceActivity : AppCompatActivity() {
             adapter2.itemClickListener = object :MessageUserAdapter.OnItemClickListener{
                 override fun OnItemClick(holder: MessageUserAdapter.MyViewHolder, view: View, data: String, position: Int) {
                     // 메세지 화면으로 전환
-                    val i = Intent(this@DetailWorkspaceActivity, ChannelActivity::class.java)
+                    val i = Intent(this@DetailWorkspaceActivity, MessageActivity::class.java)
                     i.putExtra("cannelTitle", adapter2.items[position])
                     startActivity(i)
                 }

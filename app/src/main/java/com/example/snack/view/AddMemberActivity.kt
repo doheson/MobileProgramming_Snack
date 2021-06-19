@@ -74,7 +74,7 @@ class AddMemberActivity : AppCompatActivity() {
 
             addWorkspace.setOnClickListener {//팀원 추가하기
                 for(i in 0..adapter2.items.size){
-                    userWorkspacedbhelper.insertData(User_WorkSpaceData(adapter2.items[i], workName))
+                    userWorkspacedbhelper.insertData(User_WorkSpaceData(adapter2.items[i], workName)) //에러
                 }
                 val intent = Intent(this@AddMemberActivity, WorkSpaceListActivity::class.java)
                 startActivity(intent)

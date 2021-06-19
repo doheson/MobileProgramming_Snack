@@ -3,6 +3,7 @@ package com.example.snack.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.EditText
 import android.widget.TextView
@@ -12,6 +13,10 @@ import com.example.snack.R
 import com.example.snack.data.UserIdData
 import com.example.snack.dialog.LoadingDialog
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
@@ -27,7 +32,7 @@ class SignUpActivity : AppCompatActivity() {
     var editname: EditText? = null
     private var firebaseAuth: FirebaseAuth? = null
     lateinit var userDBHelper: UserDBHelper
-
+    private lateinit var database: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -37,6 +42,7 @@ class SignUpActivity : AppCompatActivity() {
 
     fun init(){
         userDBHelper = UserDBHelper(this)
+        database = Firebase.database.reference
         editTextEmail = findViewById(R.id.et_email)
         editTextPassword = findViewById(R.id.et_password)
         editname=findViewById(R.id.edit_name)
@@ -45,6 +51,13 @@ class SignUpActivity : AppCompatActivity() {
         et_signupbtn.setOnClickListener {
             signUp()
         }
+
+
+//        database.child("users").child("4ObTiSS9n2aZFRe4O57aiYoxqNG2").get().addOnSuccessListener {
+//            Log.i("test",it.value.toString().trim())
+//        }
+
+
 
     }
 
@@ -73,6 +86,12 @@ class SignUpActivity : AppCompatActivity() {
         firebaseAuth!!.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    val data=HashMap<String,String>()
+                    data.put("name",name)
+                    data.put("uid",firebaseAuth!!.uid.toString())
+                    data.put("id",email.split("@")[0])
+                    database.child("users").child(email.split("@")[0]).setValue(data)
+                    database.child("users").child(firebaseAuth!!.uid.toString()).setValue(email.split("@")[0])
                     // Sign in success, update UI with the signed-in user's information
                     Toast.makeText(this, "회원가입성공.", Toast.LENGTH_SHORT).show();
                     dialog.dismiss()
