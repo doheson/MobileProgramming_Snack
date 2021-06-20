@@ -20,6 +20,7 @@ class WorkSpaceAddActivity : AppCompatActivity() {
     lateinit var wsDBHelper: WorkSpaceDBHelper
     lateinit var adapter: WorkSpaceAddAdapter
     var workTitle = ""
+    var isDetail = false
 
     lateinit var userWorkspacedbhelper: User_WorkSpaceDBHelper
     private val firebaseAuth: FirebaseAuth? = FirebaseAuth.getInstance()
@@ -40,6 +41,13 @@ class WorkSpaceAddActivity : AppCompatActivity() {
             Log.e("userName check", userEmail)
         } else {
             // No user is signed in.
+        }
+        if(intent.hasExtra("workName")){
+            workTitle = intent.getStringExtra("workName").toString()
+            binding.editname.setText(workTitle)
+        }
+        if(intent.hasExtra("isDetail")){
+            isDetail = intent.getBooleanExtra("isDetail",true)
         }
 
         wsDBHelper = WorkSpaceDBHelper(this)
@@ -64,14 +72,22 @@ class WorkSpaceAddActivity : AppCompatActivity() {
             }
 
             addWorkspace2.setOnClickListener {
-                for(i in 0 until adapter.getItemCount()){
-                    wsDBHelper.insertName(WorkSpaceList(0,workTitle, adapter.items[i]))
+                if(adapter.items.size != 0){
+                    for(i in 0 until adapter.getItemCount()){
+                        wsDBHelper.insertName(WorkSpaceList(0,binding.editname.text.toString(), adapter.items[i]))
+                    }
+                    userWorkspacedbhelper.insertData(User_WorkSpaceData(userEmail, binding.editname.text.toString()))
                 }
-                userWorkspacedbhelper.insertData(User_WorkSpaceData(userEmail, binding.editname.text.toString()))
 
-                val intent = Intent(this@WorkSpaceAddActivity, AddMemberActivity::class.java)
-                intent.putExtra("workName", binding.editname.text.toString())
-                startActivity(intent)
+                if(isDetail){
+                    val intent = Intent(this@WorkSpaceAddActivity, DetailWorkspaceActivity::class.java)
+                    intent.putExtra("workName", binding.editname.text.toString())
+                    startActivity(intent)
+                }else{
+                    val intent = Intent(this@WorkSpaceAddActivity, AddMemberActivity::class.java)
+                    intent.putExtra("workName", binding.editname.text.toString())
+                    startActivity(intent)
+                }
             }
         }
     }

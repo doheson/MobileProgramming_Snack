@@ -25,6 +25,8 @@ class AddMemberActivity : AppCompatActivity() {
     var array2 = ArrayList<String>()
 
     var workName = ""
+    var isDetail = false
+
     lateinit var userWorkspacedbhelper: User_WorkSpaceDBHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +41,10 @@ class AddMemberActivity : AppCompatActivity() {
         userWorkspacedbhelper = User_WorkSpaceDBHelper(this)
 
         workName = intent.getStringExtra("workName").toString()
+
+        if(intent.hasExtra("isDetail")){
+            isDetail = intent.getBooleanExtra("isDetail", true)
+        }
 
         binding.apply {
             //유저 검색 결과 리사이클러뷰
@@ -73,11 +79,19 @@ class AddMemberActivity : AppCompatActivity() {
             }
 
             addWorkspace.setOnClickListener {//팀원 추가하기
-                for(i in 0..adapter2.items.size){
-                    userWorkspacedbhelper.insertData(User_WorkSpaceData(adapter2.items[i], workName)) //에러
+                if(adapter2.items.size != 0){
+                    for(i in 0 until adapter2.items.size){
+                        userWorkspacedbhelper.insertData(User_WorkSpaceData(adapter2.items[i], workName)) //에러
+                    }
                 }
-                val intent = Intent(this@AddMemberActivity, WorkSpaceListActivity::class.java)
-                startActivity(intent)
+                if(isDetail){
+                    val intent = Intent(this@AddMemberActivity, DetailWorkspaceActivity::class.java)
+                    intent.putExtra("workName", workName)
+                    startActivity(intent)
+                }else{
+                    val intent = Intent(this@AddMemberActivity, WorkSpaceListActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
     }

@@ -52,7 +52,9 @@ class DetailWorkspaceActivity : AppCompatActivity() {
             adapter1 = ChannelAdapter(array)
             adapter1.itemClickListener = object :ChannelAdapter.OnItemClickListener{
                 override fun OnItemClick(holder: ChannelAdapter.MyViewHolder, view: View, data: String, position: Int) {
-                    // 채널 화면으로 전환
+                    val i = Intent(this@DetailWorkspaceActivity, MessageActivity::class.java)
+                    i.putExtra("cannelTitle", adapter1.items[position])
+                    startActivity(i)
                 }
             }
             recyclerView.adapter = adapter1
@@ -74,12 +76,14 @@ class DetailWorkspaceActivity : AppCompatActivity() {
 
             addMember.setOnClickListener {  //팀원 추가
                 val i = Intent(this@DetailWorkspaceActivity, AddMemberActivity::class.java)
+                i.putExtra("isDetail", true)
                 i.putExtra("workName", workTitle)
                 startActivity(i)
             }
 
             editchannel.setOnClickListener { //채널 추가
                 val i = Intent(this@DetailWorkspaceActivity, WorkSpaceAddActivity::class.java)
+                i.putExtra("isDetail", true)
                 i.putExtra("workName", workTitle)
                 startActivity(i)
             }
