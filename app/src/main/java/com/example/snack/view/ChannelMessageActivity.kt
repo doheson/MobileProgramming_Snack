@@ -88,7 +88,7 @@ class ChannelMessageActivity : AppCompatActivity() {
                 var chatmodel=ChatModel()
                 chatmodel.users.put(myuid,true)
                 chatmodel.users.put(destUid,true)
-                Toast.makeText(this@ChannelMessageActivity,"채팅방생성직전",Toast.LENGTH_SHORT).show()
+
                     sendmsgbtnmsg.isEnabled=false
 
                         checkChatRoom()

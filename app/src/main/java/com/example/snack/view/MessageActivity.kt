@@ -84,9 +84,9 @@ class MessageActivity : AppCompatActivity() {
                 chatmodel.users.put(myuid,true)
                 chatmodel.users.put(destUid,true)
 
-                Toast.makeText(this@MessageActivity,"채팅방생성직전",Toast.LENGTH_SHORT).show()
+
                 if(chatRoomUid==null){
-                    Toast.makeText(this@MessageActivity,"채팅방생성",Toast.LENGTH_SHORT).show()
+
                     sendmsgbtn.isEnabled=false
                     firebaseDatabase!!.reference.child("chatrooms").push().setValue(chatmodel).addOnSuccessListener {
                         checkChatRoom()
