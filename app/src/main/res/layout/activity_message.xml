@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:outlineAmbientShadowColor="#000000"
-    tools:context=".view.MainActivity">
+    tools:context=".view.MessageActivity">
 
     <LinearLayout
         android:id="@id/layout"
@@ -30,9 +30,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="60dp"
-            android:text="# 채널이름1"
             android:ellipsize="marquee"
             android:singleLine="true"
+            android:text="# 상대방아이디"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -44,7 +44,6 @@
         android:layout_height="match_parent"
         android:layout_above="@id/linear"
         android:layout_below="@+id/layout"
-
         android:paddingHorizontal="30dp" />
 
     <LinearLayout
@@ -63,7 +62,7 @@
         android:padding="15dp">
 
         <EditText
-            android:id="@+id/findUser"
+            android:id="@+id/editmsg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="5"
@@ -74,7 +73,7 @@
             android:textSize="14sp" />
 
         <ImageView
-            android:id="@+id/searchbtn"
+            android:id="@+id/sendmsgbtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"

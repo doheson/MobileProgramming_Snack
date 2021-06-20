@@ -4,13 +4,14 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_logo_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/NoActionBar">
-        <activity android:name=".view.emailverify"></activity>
+        android:theme="@style/NoActionBar"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".view.MessageActivity"></activity>
+        <activity android:name=".view.emailverify" />
         <activity android:name=".view.ChannelActivity" />
         <activity android:name=".view.DetailWorkspaceActivity" />
         <activity android:name=".view.AddMemberActivity" />

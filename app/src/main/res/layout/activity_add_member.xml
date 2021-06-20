@@ -43,7 +43,7 @@
         android:padding="15dp">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/findUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="5"
@@ -54,7 +54,7 @@
             android:textSize="14sp" />
 
         <ImageView
-            android:id="@+id/search"
+            android:id="@+id/searchbtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -74,7 +74,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
         android:background="@drawable/yellow_border_box"
         android:paddingHorizontal="30dp" />
 
@@ -90,7 +90,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:background="@drawable/yellow_border_box"
         android:paddingHorizontal="30dp" />
 
