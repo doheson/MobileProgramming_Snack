@@ -52,7 +52,7 @@ class DetailWorkspaceActivity : AppCompatActivity() {
             adapter1 = ChannelAdapter(array)
             adapter1.itemClickListener = object :ChannelAdapter.OnItemClickListener{
                 override fun OnItemClick(holder: ChannelAdapter.MyViewHolder, view: View, data: String, position: Int) {
-                    val i = Intent(this@DetailWorkspaceActivity, MessageActivity::class.java)
+                    val i = Intent(this@DetailWorkspaceActivity, ChannelMessageActivity::class.java)
                     i.putExtra("cannelTitle", adapter1.items[position])
                     startActivity(i)
                 }

@@ -21,11 +21,10 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class ChMessageAdapter(val items: ArrayList<ChatModel.Comment>,my:String, dest:String, chatroom:String): RecyclerView.Adapter<ChMessageAdapter.ViewHolder>() {
+class ChannelMessageAdapter(val items: ArrayList<ChatModel.Comment>): RecyclerView.Adapter<ChannelMessageAdapter.ViewHolder>() {
 
-    val myuid=my
-    val destUid=dest
-    val chatRoomUid=chatroom
+
+
     var firebaseDatabase= FirebaseDatabase.getInstance()
     var destUser: User? = null
 
@@ -33,10 +32,7 @@ class ChMessageAdapter(val items: ArrayList<ChatModel.Comment>,my:String, dest:S
         val editname: TextView =itemView.findViewById(R.id.editname)
         val textingmsg: TextView =itemView.findViewById(R.id.textingmsg)
 
-        init{
-            Log.i("testiadapter",myuid+destUid)
 
-        }
 
     }
 //    private fun getDestUid() {
@@ -55,25 +51,21 @@ class ChMessageAdapter(val items: ArrayList<ChatModel.Comment>,my:String, dest:S
 //    }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChMessageAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChannelMessageAdapter.ViewHolder {
         val view=LayoutInflater.from(parent.context).inflate(R.layout.row_channel_message,parent,false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ChMessageAdapter.ViewHolder, position: Int) {
-        if(items?.get(position)?.uid.equals(myuid)){
-            holder.editname.text=myuid
+    override fun onBindViewHolder(holder: ChannelMessageAdapter.ViewHolder, position: Int) {
+
+            holder.editname.text=items?.get(position)?.uid
             holder.textingmsg.text=items?.get(position)?.message
             holder.textingmsg.setTextColor(Color.DKGRAY)
-
-        }
-        else{
-            holder.editname.text=destUid
-            holder.textingmsg.text=items?.get(position)?.message
-        }
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
+
+
 }

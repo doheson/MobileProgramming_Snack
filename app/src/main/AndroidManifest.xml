@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.MessageActivity"></activity>
+        <activity android:name=".view.ChannelMessageActivity"></activity>
+        <activity android:name=".view.MessageActivity" />
         <activity android:name=".view.emailverify" />
         <activity android:name=".view.ChannelActivity" />
         <activity android:name=".view.DetailWorkspaceActivity" />
